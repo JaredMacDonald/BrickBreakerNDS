@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -72,6 +72,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakeOutput>MyProject.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
+    <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeOutput>MyProject.exe</NMakeOutput>
@@ -84,20 +86,18 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\background.cpp" />
+    <ClCompile Include="source\Backgrounds\background.cpp" />
     <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\sprites.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\background.h" />
-    <ClInclude Include="source\ball.h" />
-    <ClInclude Include="source\brick.h" />
-    <ClInclude Include="source\paddle.h" />
-    <ClInclude Include="source\palettes.h" />
-    <ClInclude Include="source\sprites.h" />
+    <ClInclude Include="source\Backgrounds\background.h" />
+    <ClInclude Include="source\Sprites\ball.h" />
+    <ClInclude Include="source\Sprites\brick.h" />
+    <ClInclude Include="source\Sprites\paddle.h" />
+    <ClInclude Include="source\Sprites\palettes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
