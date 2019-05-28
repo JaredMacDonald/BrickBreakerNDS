@@ -1,0 +1,11 @@
+# Directories
+.vs
+[Bb]uild
+[Dd]ebug
+gfx
+
+# Files
+*.user
+*.elf
+*.nds
+*.txt

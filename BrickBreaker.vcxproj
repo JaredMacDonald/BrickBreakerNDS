@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{CCCD9D39-A676-4D18-9950-CE1869B5B94D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeOutput>
+    </NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
+    <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakeOutput>MyProject.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeOutput>MyProject.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <NMakeOutput>MyProject.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\background.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\sprites.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\background.h" />
+    <ClInclude Include="source\ball.h" />
+    <ClInclude Include="source\brick.h" />
+    <ClInclude Include="source\paddle.h" />
+    <ClInclude Include="source\palettes.h" />
+    <ClInclude Include="source\sprites.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties WinGDB_qVB57QUOT0lynJh0o1aKEg_bServerPortIsForwarded="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strBuildHostLogin="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileName="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathRemoteBuildDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionCleanCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionBuildVariables="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathLoadProgramPath="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strDebugTargetLogin="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCXXFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bUseProtoCtl="false" WinGDB_rLWppUn8DCB6IkK-CooeCg_strProjectStateSignals="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathServerLibraryPaths="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bStopInMain="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSysrootOnHost="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strCustomVariables="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDebugInfoDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionDeployCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bLaunchDebuggerInSudo="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDebugger="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteDeployCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteBuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileRM="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileAR="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathExecutableOnTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteCleanCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDynamicLinker="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileDestDir="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSharedLibraryDirectories="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCompilerC="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathWorkingDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSolutionDeployTargetDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strLaunchArguments="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSourceDirectories="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCore="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomPreLoadInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDeployFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathToolchain="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bSourceSession="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionBuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bForwardX11ForDebugging="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionRebuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strVisualizerProfile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathRemoteSolutionBuildDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bUseSysroot="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDeployTargetDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathExecutableOnBuildHost="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strAdditionalDebuggerOptions="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bReuseStandardBuildCommand="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathProtoCtlLogFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bServerAutoLaunch="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathServerPath="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteBuildVariables="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDeployOnlyIfFileChanged="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCondCustomInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strDebugHostLogin="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileLDFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bSolutionDeployOnlyIfFileChanged="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSysrootOnTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDisableHangReporter="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDeployBeforeStartDebugging="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCompilerCXX="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bAutoflowRegenMakeOnBuild="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMainFunctionName="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathExecutable="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteRebuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileGeneratorScriptName="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileGeneratorScriptArgs="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bMakefileAskBeforeOverwrite="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSolutionDeployFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileMKDIR="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strLaunchEnvironment="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomCondPreLoadInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileIntDir="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
