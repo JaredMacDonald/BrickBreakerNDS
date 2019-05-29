@@ -16,42 +16,51 @@
     <Filter Include="Source Files\sprites">
       <UniqueIdentifier>{d68c6156-b7e2-4478-804d-9b10bb824033}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\background">
-      <UniqueIdentifier>{b5b481fb-a3bc-4170-ba72-bafce834a8ca}</UniqueIdentifier>
+    <Filter Include="Header Files\Backgrounds">
+      <UniqueIdentifier>{e38495ea-4e5f-44bd-9afb-26399d679370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sprites">
+      <UniqueIdentifier>{2c2710ff-4f4a-4e4d-8422-1a8b26c38491}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sprites.cpp">
+    <ClCompile Include="source\Backgrounds\background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\background.cpp">
-      <Filter>Source Files\background</Filter>
+    <ClCompile Include="source\Sprites\Sprite.cpp">
+      <Filter>Source Files\sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Game.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\sprites.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="include\Game.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\palettes.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="include\Sprites\ball.h">
+      <Filter>Header Files\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="source\ball.h">
-      <Filter>Source Files\sprites</Filter>
+    <ClInclude Include="include\Sprites\brick.h">
+      <Filter>Header Files\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="source\paddle.h">
-      <Filter>Source Files\sprites</Filter>
+    <ClInclude Include="include\Sprites\paddle.h">
+      <Filter>Header Files\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="source\brick.h">
-      <Filter>Source Files\sprites</Filter>
+    <ClInclude Include="include\Sprites\palettes.h">
+      <Filter>Header Files\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="source\background.h">
-      <Filter>Source Files\background</Filter>
+    <ClInclude Include="include\Sprites\Sprite.h">
+      <Filter>Header Files\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Backgrounds\background.h">
+      <Filter>Header Files\Backgrounds</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

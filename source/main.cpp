@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "Game.h"
+
 #include "Sprites/ball.h"
 #include "Sprites/brick.h"
 #include "Sprites/paddle.h"
@@ -30,7 +32,7 @@ static const int rows = 5;
 static int ballSpeedX = 2;
 static int ballSpeedY = 2;
 
-static int paddleMovementSpeed = 4;
+//static int paddleMovementSpeed = 4;
 
 SpriteData bricks[16][5] = {};
 
@@ -162,11 +164,18 @@ void CheckBallCollisionWithBrick(SpriteData& ball, SpriteData& brick)
     }
 }
 
-
+static Game* g_Game;
 //---------------------------------------------------------------------------------
 int main(void) {
-	//---------------------------------------------------------------------------------
-	touchPosition touch;
+//---------------------------------------------------------------------------------
+	g_Game = new Game();
+	if (!g_Game)
+	{
+		// Something went wrong and unable to create game.
+		return 0;
+	}
+
+	g_Game->Init();
 
 	videoSetMode(MODE_5_2D);
 	videoSetModeSub(MODE_5_2D);
@@ -181,8 +190,6 @@ int main(void) {
 	int bg = bgInit(3, BgType_Bmp16, BgSize_B16_256x256, 0, 0);
 	dmaCopy((u8*)BgImgData_background_png, bgGetGfxPtr(bg), 256 * 256);
     dmaCopy((u8*)SpritePalettes, BG_PALETTE, 32 * 3);
-    
-    
 
 	oamInit(&oamSub, SpriteMapping_1D_32, false);
     
@@ -193,76 +200,78 @@ int main(void) {
 
 	while (1) {
 
-		scanKeys();
+		g_Game->Run();
 
-		int held = keysHeld();
+		//scanKeys();
 
-        if (held & KEY_TOUCH)
-        {
-            touchRead(&touch);
-            sprites[PADDLE].x = touch.px;
-        }
-        else if (held & KEY_LEFT)
-        {
-            sprites[PADDLE].x -= paddleMovementSpeed;
-            if (sprites[PADDLE].x <= 0)
-            {
-                sprites[PADDLE].x = 0;
-            }
-        }
-        else if (held & KEY_RIGHT)
-        {
-            sprites[PADDLE].x += paddleMovementSpeed;
-            if (sprites[PADDLE].x + sprites[PADDLE].width >= 256)
-            {
-                sprites[PADDLE].x = 256 - sprites[PADDLE].width;
-            }
-        }
+		//int held = keysHeld();
 
-        if (held & KEY_START)
-        {
-            break;
-        }
-		
+  //      if (held & KEY_TOUCH)
+  //      {
+  //          touchRead(&touch);
+  //          sprites[PADDLE].x = touch.px;
+  //      }
+  //      else if (held & KEY_LEFT)
+  //      {
+  //          sprites[PADDLE].x -= paddleMovementSpeed;
+  //          if (sprites[PADDLE].x <= 0)
+  //          {
+  //              sprites[PADDLE].x = 0;
+  //          }
+  //      }
+  //      else if (held & KEY_RIGHT)
+  //      {
+  //          sprites[PADDLE].x += paddleMovementSpeed;
+  //          if (sprites[PADDLE].x + sprites[PADDLE].width >= 256)
+  //          {
+  //              sprites[PADDLE].x = 256 - sprites[PADDLE].width;
+  //          }
+  //      }
 
-		sprites[BALL].x += ballSpeedX;
-		sprites[BALL].y += ballSpeedY;
+  //      if (held & KEY_START)
+  //      {
+  //          break;
+  //      }
+		//
 
-        CheckBallCollisionWithScreen(sprites[BALL]);
-        CheckBallCollisionWithPaddle(sprites[BALL], sprites[PADDLE]);
+		//sprites[BALL].x += ballSpeedX;
+		//sprites[BALL].y += ballSpeedY;
 
-        for (int x = 0; x < columns; x++)
-        {
-            for (int y = 0; y < rows; y++)
-            {
-                CheckBallCollisionWithBrick(sprites[BALL], bricks[x][y]);
-            }
-        }
+  //      CheckBallCollisionWithScreen(sprites[BALL]);
+  //      CheckBallCollisionWithPaddle(sprites[BALL], sprites[PADDLE]);
 
-		for (int i = 0; i < 2; i++)
-		{
-			oamSet(&oamSub, //main graphics engine context
-				i,           //oam index (0 to 127)  
-				//touch.px, touch.py,   //x and y pixle location of the sprite
-				sprites[i].x, sprites[i].y,
-				0,                    //priority, lower renders last (on top)
-				0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
-				sprites[i].size,
-				SpriteColorFormat_16Color,
-				sprites[i].gfx,                  //pointer to the loaded graphics
-				-1,                  //sprite rotation data  
-				false,               //double the size when rotating?
-				false,			//hide the sprite?
-				false, false, //vflip, hflip
-				false	//apply mosaic
-			);
-		}
+  //      for (int x = 0; x < columns; x++)
+  //      {
+  //          for (int y = 0; y < rows; y++)
+  //          {
+  //              CheckBallCollisionWithBrick(sprites[BALL], bricks[x][y]);
+  //          }
+  //      }
 
-        DrawBricks();
+		//for (int i = 0; i < 2; i++)
+		//{
+		//	oamSet(&oamSub, //main graphics engine context
+		//		i,           //oam index (0 to 127)  
+		//		//touch.px, touch.py,   //x and y pixle location of the sprite
+		//		sprites[i].x, sprites[i].y,
+		//		0,                    //priority, lower renders last (on top)
+		//		0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	
+		//		sprites[i].size,
+		//		SpriteColorFormat_16Color,
+		//		sprites[i].gfx,                  //pointer to the loaded graphics
+		//		-1,                  //sprite rotation data  
+		//		false,               //double the size when rotating?
+		//		false,			//hide the sprite?
+		//		false, false, //vflip, hflip
+		//		false	//apply mosaic
+		//	);
+		//}
 
-		swiWaitForVBlank();
+  //      DrawBricks();
 
-        oamUpdate(&oamSub);
+		//swiWaitForVBlank();
+
+  //      oamUpdate(&oamSub);
 
 	}
 
