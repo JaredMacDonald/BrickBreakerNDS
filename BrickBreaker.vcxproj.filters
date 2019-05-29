@@ -27,9 +27,6 @@
     <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Backgrounds\background.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Sprites\Sprite.cpp">
       <Filter>Source Files\sprites</Filter>
     </ClCompile>

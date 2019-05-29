@@ -1,5 +1,5 @@
 #include <nds.h>
-#include "../include/Sprites/Sprite.h"
+#include "Sprites/Sprite.h"
 
 Sprite::Sprite()
 {
@@ -43,21 +43,22 @@ void Sprite::SetHeight(int height)
 	m_Height = height;
 }
 
-void Sprite::Init(OamState* oamState, unsigned char* imageData, SpriteSize spriteSize, SpriteColorFormat colorFormat)
+void Sprite::Init(OamState* oamState, int oamIndex, unsigned char* imageData, SpriteSize spriteSize, SpriteColorFormat colorFormat)
 {
 	m_OamState = oamState;
+	m_OamIndex = oamIndex;
 	m_SpriteSize = spriteSize;
 	m_ColorFormat = colorFormat;
 
-	m_OamGFX = oamAllocateGfx(*m_OamState, m_SpriteSize, m_ColorFormat);
+	m_OamGFX = oamAllocateGfx(m_OamState, m_SpriteSize, m_ColorFormat);
 
 	dmaCopy(m_Data, m_OamGFX, 32 * 2);
 }
 
 void Sprite::Draw()
 {
-	oamSet(*m_OamState, //main graphics engine context
-				i,           //oam index (0 to 127)  
+	oamSet(m_OamState, //main graphics engine context
+			m_OamIndex,           //oam index (0 to 127)  
 				m_X, m_Y,//x and y pixel location of the sprite
 				0,                    //priority, lower renders last (on top)
 				0,					  //this is the palette index if multiple palettes or the alpha value if bmp sprite	

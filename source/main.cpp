@@ -5,11 +5,11 @@
 
 #include "Game.h"
 
-#include "Sprites/ball.h"
-#include "Sprites/brick.h"
-#include "Sprites/paddle.h"
-#include "Sprites/palettes.h"
-#include "Backgrounds/background.h"
+#include "ball.h"
+#include "brick.h"
+#include "paddle.h"
+#include "palettes.h"
+#include "background.h"
 
 struct SpriteData
 {

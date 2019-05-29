@@ -8,7 +8,7 @@ public:
 	Sprite();
 	virtual ~Sprite();
 
-	void Init(OamState* oamState, unsigned char* imageData, SpriteSize spriteSize, SpriteColorFormat colorFormat);
+	void Init(OamState* oamState, int oamIndex, unsigned char* imageData, SpriteSize spriteSize, SpriteColorFormat colorFormat);
 
 	void Draw();
 
@@ -31,6 +31,8 @@ private:
 
 	u16* m_OamGFX;
 	u8* m_Data;
+	int m_OamIndex;
+
 	OamState* m_OamState;
 	SpriteSize m_SpriteSize;
 	SpriteColorFormat m_ColorFormat;

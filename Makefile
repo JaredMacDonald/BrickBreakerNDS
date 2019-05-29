@@ -16,8 +16,14 @@ include $(DEVKITARM)/ds_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	$(shell basename $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	gfx source data  
-INCLUDES	:=	include build
+SOURCES		:=	gfx\
+				source\
+				source/Sprites\
+				data  
+INCLUDES	:=	include\
+				include/Sprites\
+				include/Backgrounds\
+				build
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -92,6 +98,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
  
 .PHONY: $(BUILD) clean
+.PHONY: $(BUILD) rebuild
  
 #---------------------------------------------------------------------------------
 $(BUILD):
@@ -103,6 +110,9 @@ clean:
 	@echo clean ...
 	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).nds $(TARGET).ds.gba 
  
+rebuild:
+	$(MAKE) clean
+	$(MAKE) 
  
 #---------------------------------------------------------------------------------
 else

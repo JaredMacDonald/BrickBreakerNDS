@@ -74,6 +74,10 @@
     <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
     <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\out\$(Platform)\$(Configuration)\</IntDir>
+    <NMakeReBuildCommandLine>make rebuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeOutput>MyProject.exe</NMakeOutput>
@@ -86,7 +90,6 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\Backgrounds\background.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Sprites\Sprite.cpp" />

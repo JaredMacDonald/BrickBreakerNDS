@@ -1,5 +1,6 @@
 #pragma once
-#include "Sprites/Sprite.h"
+
+class Sprite;
 
 class Game
 {
