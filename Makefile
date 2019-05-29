@@ -8,6 +8,7 @@ endif
 
 include $(DEVKITARM)/ds_rules
 
+NDSENGINE = /c/Projects/NDS/NDSEngine/Engine
 #---------------------------------------------------------------------------------
 # TARGET is the name of the output
 # BUILD is the directory where object files & intermediate files will be placed
@@ -48,14 +49,16 @@ LDFLAGS	=	-specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:= -lnds9
+LIBS	:= -lnds9 \
+		-lEngine
  
  
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:=	$(LIBNDS)
+LIBDIRS	:=	$(LIBNDS)\
+			$(NDSENGINE)
  
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -102,6 +105,7 @@ export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
  
 #---------------------------------------------------------------------------------
 $(BUILD):
+	@echo $(LIBPATHS)
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
  
