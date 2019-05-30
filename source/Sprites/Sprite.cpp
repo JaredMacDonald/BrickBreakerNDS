@@ -1,5 +1,6 @@
 #include <nds.h>
 #include "Sprites/Sprite.h"
+#include "ball.h"
 
 Sprite::Sprite()
 {
@@ -43,16 +44,18 @@ void Sprite::SetHeight(int height)
 	m_Height = height;
 }
 
-void Sprite::Init(OamState* oamState, int oamIndex, unsigned char* imageData, SpriteSize spriteSize, SpriteColorFormat colorFormat)
+void Sprite::Init(OamState* oamState, int oamIndex, const unsigned char* imageData, SpriteSize spriteSize, SpriteColorFormat colorFormat)
 {
 	m_OamState = oamState;
 	m_OamIndex = oamIndex;
+	m_Data = imageData;
 	m_SpriteSize = spriteSize;
 	m_ColorFormat = colorFormat;
 
 	m_OamGFX = oamAllocateGfx(m_OamState, m_SpriteSize, m_ColorFormat);
 
-	dmaCopy(m_Data, m_OamGFX, 32 * 2);
+	int size = SPRITE_SIZE_SIZE(spriteSize);
+	dmaCopy((u16*)m_Data, m_OamGFX, sizeof(ball));
 }
 
 void Sprite::Draw()

@@ -1,20 +1,24 @@
 #pragma once
+#include <NDSEngine.h>
 
 class Sprite;
 
-class Game
+class Game : public JM::Application
 {
 public:
 	Game();
 	virtual ~Game();
 
-	void Init();
-	void Run();
+	virtual void Initialize();
+	virtual void Run();
+
 	void Draw();
-	void Shutdown();
+	virtual void Shutdown();
 
 private:
 	void ProcessInput();
+
+	void SetupSprites();
 
 	int m_Columns;
 	int m_Rows;

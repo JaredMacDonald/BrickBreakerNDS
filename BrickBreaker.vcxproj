@@ -73,7 +73,7 @@
     <NMakeOutput>MyProject.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
-    <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;$(SolutionDir)..\NDSEngine\Engine\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\out\$(Platform)\$(Configuration)\</IntDir>
     <NMakeReBuildCommandLine>make rebuild</NMakeReBuildCommandLine>
