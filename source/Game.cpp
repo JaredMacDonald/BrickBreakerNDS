@@ -1,18 +1,24 @@
 #include <nds.h>
-#include "Game.h"
-#include "Sprite.h"
-#include "palettes.h"
-#include "background.h"
-#include "ball.h"
-#include "brick.h"
-#include "paddle.h"
+#include <NDSEngine.h>
+
+#include <Ball.h>
+#include <Game.h>
+#include <GameObject.h>
+#include <Paddle.h>
+
+#include <palettes.h>
+#include <background.h>
+#include <brick_data.h>
+#include <paddle_data.h>
+
+using namespace JM;
 
 // ---- Entry Point -------
 JM::Application* JM::CreateApplication()
 {
 	return new Game();
 }
-
+// -----------------------
 
 Game::Game()
 {
@@ -21,7 +27,7 @@ Game::Game()
 
 Game::~Game()
 {
-
+	Shutdown();
 }
 
 void Game::Initialize()
@@ -49,9 +55,6 @@ void Game::Initialize()
 	oamInit(&oamSub, SpriteMapping_1D_32, false);
 
 	SetupSprites();
-
-	m_Ball->SetPosition(128, 150);
-	//m_Paddle->SetPosition(128, 160);
 }
 
 void Game::Run()
@@ -93,31 +96,39 @@ void Game::Run()
 			return;
 		}
 
+		Update();
+
 		Draw();
-
+		
 		swiWaitForVBlank();
-
 		oamUpdate(&oamSub);
 	}
 }
 
 void Game::Draw()
 {
-	m_Ball->Draw();
-	//m_Paddle->Draw();
-
-	/*for (int i = 0; i < m_Columns; i++)
+	for (int i = 0; i < m_GameObjects.size(); i++)
 	{
-		for (int j = 0; i < m_Rows; j++)
-		{
-			m_Bricks[i][j]->Draw();
-		}
-	}*/
+		m_GameObjects[i]->Draw();
+	}
+}
+
+void Game::Update()
+{
+	for (int i = 0; i < m_GameObjects.size(); i++)
+	{
+		m_GameObjects[i]->Update();
+	}
 }
 
 void Game::Shutdown()
 {
+	for (int i = 0; i < m_GameObjects.size(); i++)
+	{
+		delete m_GameObjects[i];
+	}
 
+	//delete m_Ball;
 }
 
 void Game::ProcessInput()
@@ -127,11 +138,11 @@ void Game::ProcessInput()
 
 void Game::SetupSprites()
 {
-	m_Ball = new Sprite();
-	m_Ball->Init(&oamSub, 0, ball, SpriteSize_8x8, SpriteColorFormat_16Color);
+	/*m_Ball = ;
+	m_Paddle = ;*/
 
-	/*m_Paddle = new Sprite();
-	m_Paddle->Init(&oamSub, 1, paddle, SpriteSize_32x8, SpriteColorFormat_16Color);*/
+	m_GameObjects.push_back(new Ball(128, 150));
+	m_GameObjects.push_back(new Paddle(128, 160));
 
 	/*int oamIndex = 2;
 	for (int i = 0; i < m_Columns; i++)

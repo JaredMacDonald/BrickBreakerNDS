@@ -13,24 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\sprites">
-      <UniqueIdentifier>{d68c6156-b7e2-4478-804d-9b10bb824033}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Backgrounds">
-      <UniqueIdentifier>{e38495ea-4e5f-44bd-9afb-26399d679370}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Sprites">
+    <Filter Include="Header Files\Data">
       <UniqueIdentifier>{2c2710ff-4f4a-4e4d-8422-1a8b26c38491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Sprites">
+      <UniqueIdentifier>{eb790b47-0e91-4ac6-9503-0e992fa07fe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Backgrounds">
+      <UniqueIdentifier>{86f5630e-9ec4-4e82-a5e8-521ba8d0cf33}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\main.cpp">
+    <ClCompile Include="source\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Sprites\Sprite.cpp">
-      <Filter>Source Files\sprites</Filter>
+    <ClCompile Include="source\Ball.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Game.cpp">
+    <ClCompile Include="source\Paddle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,23 +41,29 @@
     <ClInclude Include="include\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sprites\ball.h">
-      <Filter>Header Files\Sprites</Filter>
+    <ClInclude Include="include\Data\Backgrounds\background.h">
+      <Filter>Header Files\Data\Backgrounds</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sprites\brick.h">
-      <Filter>Header Files\Sprites</Filter>
+    <ClInclude Include="include\Data\Sprites\palettes.h">
+      <Filter>Header Files\Data\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sprites\paddle.h">
-      <Filter>Header Files\Sprites</Filter>
+    <ClInclude Include="include\Data\Sprites\ball_data.h">
+      <Filter>Header Files\Data\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sprites\palettes.h">
-      <Filter>Header Files\Sprites</Filter>
+    <ClInclude Include="include\Data\Sprites\brick_data.h">
+      <Filter>Header Files\Data\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sprites\Sprite.h">
-      <Filter>Header Files\Sprites</Filter>
+    <ClInclude Include="include\Data\Sprites\paddle_data.h">
+      <Filter>Header Files\Data\Sprites</Filter>
     </ClInclude>
-    <ClInclude Include="include\Backgrounds\background.h">
-      <Filter>Header Files\Backgrounds</Filter>
+    <ClInclude Include="include\Ball.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Paddle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

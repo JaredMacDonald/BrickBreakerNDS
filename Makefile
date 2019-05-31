@@ -17,14 +17,11 @@ NDSENGINE = /c/Projects/NDS/NDSEngine/Engine
 #---------------------------------------------------------------------------------
 TARGET		:=	$(shell basename $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	gfx\
-				source\
-				source/Sprites\
-				data  
+SOURCES		:=	source\
+
 INCLUDES	:=	include\
-				include/Sprites\
-				include/Backgrounds\
-				build
+				include/Data/Sprites\
+				include/Data/Backgrounds\
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -105,7 +102,6 @@ export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
  
 #---------------------------------------------------------------------------------
 $(BUILD):
-	@echo $(LIBPATHS)
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
  

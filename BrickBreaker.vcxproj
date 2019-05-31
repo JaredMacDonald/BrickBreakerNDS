@@ -67,7 +67,11 @@
     </NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
-    <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;C:\Projects\NDS\BrickBreakerNDS\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <OutDir>$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\bin\$(Configuration)\</IntDir>
+    <NMakeReBuildCommandLine>make rebuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakeOutput>MyProject.exe</NMakeOutput>
@@ -75,7 +79,7 @@
     <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
     <NMakeIncludeSearchPath>C:\devkitPro\libnds\include;$(SolutionDir)..\NDSEngine\Engine\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)\out\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)\bin\out\$(Platform)\$(Configuration)\</IntDir>
     <NMakeReBuildCommandLine>make rebuild</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
   </PropertyGroup>
@@ -90,21 +94,23 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Ball.cpp" />
     <ClCompile Include="source\Game.cpp" />
-    <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\Sprites\Sprite.cpp" />
+    <ClCompile Include="source\Paddle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Backgrounds\background.h" />
+    <ClInclude Include="include\Ball.h" />
+    <ClInclude Include="include\Data\Backgrounds\background.h" />
+    <ClInclude Include="include\Data\Sprites\ball_data.h" />
+    <ClInclude Include="include\Data\Sprites\brick_data.h" />
+    <ClInclude Include="include\Data\Sprites\paddle_data.h" />
+    <ClInclude Include="include\Data\Sprites\palettes.h" />
     <ClInclude Include="include\Game.h" />
-    <ClInclude Include="include\Sprites\ball.h" />
-    <ClInclude Include="include\Sprites\brick.h" />
-    <ClInclude Include="include\Sprites\paddle.h" />
-    <ClInclude Include="include\Sprites\palettes.h" />
-    <ClInclude Include="include\Sprites\Sprite.h" />
+    <ClInclude Include="include\GameObject.h" />
+    <ClInclude Include="include\Paddle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
