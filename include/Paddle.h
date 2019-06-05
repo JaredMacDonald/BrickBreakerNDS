@@ -1,10 +1,9 @@
 #pragma once
 
-#include <Render/2D/Sprite.h>
+#include <NDSEngine.h>
+#include "GameObject.h"
 
 using namespace JM;
-
-#include "GameObject.h"
 
 class Paddle : public GameObject
 {

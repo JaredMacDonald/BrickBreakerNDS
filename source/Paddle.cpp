@@ -1,5 +1,9 @@
+#include <NDSEngine.h>
+
 #include "paddle_data.h" // gfx
 #include "Paddle.h"
+
+using namespace JM;
 
 Paddle::Paddle(int x, int y)
 {
@@ -24,5 +28,34 @@ void Paddle::Draw()
 
 void Paddle::Update()
 {
+	touchPosition touch;
+	InputManager* inputManager = InputManager::GetInstance();
+	if (inputManager == nullptr)
+		return;
 
+	if (inputManager->IsButtonHeld(BUTTON_TOUCH))
+	{
+		touchRead(&touch);
+		SetXPosition(touch.px);
+	}
+	else if (inputManager->IsButtonHeld(BUTTON_DPAD_LEFT))
+	{
+		int newX = GetXPosition() - 4;
+		SetXPosition(newX);
+		if (newX <= 0)
+		{
+			SetXPosition(newX);
+		}
+	}
+	else if (inputManager->IsButtonHeld(BUTTON_DPAD_RIGHT))
+	{
+		int newX = GetXPosition() + 4;
+		SetXPosition(newX);
+		if (GetXPosition() >= 256)
+		{
+			SetXPosition(256 - 8);
+		}
+	}
+
+	m_Sprite->SetPosition(m_X, m_Y);
 }
